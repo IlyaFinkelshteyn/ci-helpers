@@ -22,58 +22,13 @@ environment:
         PYTEST_VERSION: "<4"
         TEST_CMD: "python -c \"import pytest; assert int(pytest.__version__[0])<4\""
 
-      - PYTHON_VERSION: "3.5"
-        NUMPY_VERSION: "1.13"
-        ASTROPY_VERSION: "lts"
-
-      - PYTHON_VERSION: "3.5"
-        NUMPY_VERSION: "development"
-        CONDA_DEPENDENCIES: "scipy glymur"
-        CONDA_CHANNELS: "conda-forge astrofrog"
-        PIP_DEPENDENCIES: "requests pyparsing"
-        CONDA_CHANNEL_PRIORITY: "True"
-        DEBUG: "True"
-
-      - PYTHON_VERSION: "3.6"
-        NUMPY_VERSION: "stable"
-        ASTROPY_VERSION: "stable"
-        CONDA_DEPENDENCIES: "matplotlib h5py"
-        PIP_DEPENDENCIES: "astrodendro"
-        CONDA_CHANNEL_PRIORITY: "False"
-        SUNPY_VERSION: "dev"
-        DEBUG: "True"
-
-        # For the Numpy dev build, we also specify a conda package that depends
-        # on Numpy to make sure that Numpy dev is used (because conda will also
-        # install Numpy stable)
-
-      - PYTHON_VERSION: "3.4"
-        NUMPY_VERSION: "1.9"
-
-        # We deliberately test with Numpy 1.13 to check that installing Astropy
-        # dev doesn't upgrade Numpy.
-      - PYTHON_VERSION: "3.5"
-        NUMPY_VERSION: "1.13"
-        ASTROPY_VERSION: "development"
-
-      # Have to supply "PYTHON_VERSION" only because of windows_sdk.cmd code
-      - PYTHON_VERSION: "3.5"
-        CONDA_ENVIRONMENT: "conda_environment.yml"
-        TEST_CMD: "python -c \"import matplotlib\""
-
-      - PYTHON_VERSION: "3.6"
-        ASTROPY_VERSION: "3.0"
-        SUNPY_VERSION: "0.9"
-        PIP_FALLBACK: "False"
-        CONDA_CHANNELS: "conda-forge"
-
 matrix:
    fast_finish: true
 
 platform:
     -x64
 
-os: Visual Studio 2015 Update 2
+#os: Visual Studio 2015 Update 2
 
 install:
 
